@@ -73,6 +73,7 @@ function App() {
       </header>
       <Form todo={todo} setTodo={setTodo} setInput={setInput} input={input} setStatus={setStatus} />
       <List todo = {todo} setTodo={setTodo} filteredTodo={filteredTodo}/>
+      
     </div>
   );
 }
