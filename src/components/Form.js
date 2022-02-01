@@ -7,7 +7,7 @@ const Form = ({setInput, todo, setTodo,input, setStatus}) =>{
 
 
     const inputHandler = (e)=> {
-        //exception handling
+
         if(input.length>=4){
           var error = document.getElementById("error");
           error.textContent="";
@@ -28,7 +28,7 @@ const Form = ({setInput, todo, setTodo,input, setStatus}) =>{
         {
               
             // Changing content and color of content
-            error.textContent = "Please enter a valid number"
+            error.textContent = "Please enter a the task name \nwith more than 4 characters"
             error.style.color = "red"
         } else {
             error.textContent = ""
