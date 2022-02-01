@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Form from "./components/Form";
 import List from "./components/List";
+import Completed_List from './components/Completed_List';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
   const [todo,setTodo] = useState([]);
   const [status,setStatus] = useState('all');
   const [filteredTodo,setFileredTodo] = useState([]);
-
+  const [completedList,setCompletedList] = useState([]);
 
 
   useEffect(()=>{
@@ -44,11 +45,29 @@ function App() {
 
   }
 
+  const removeHandler = ()=>{
+
+
+    todo.forEach(function(element){
+
+      if(element.completed===true){
+        completedList.push(element);
+      }
+
+    })
+
+
+
+    setTodo(todo.filter(ele=>ele.completed===false))
+
+
+  };
+
   const saveLocalStorage = ()=>{
 
 
     localStorage.setItem("todos",JSON.stringify(todo));
-    
+    localStorage.setItem("completed",JSON.stringify(completedList));
 
   }
 
@@ -57,10 +76,12 @@ function App() {
     if(localStorage.getItem("todos")===null){
       
       localStorage.setItem("todos",JSON.stringify([]));
+      localStorage.setItem("completed",JSON.stringify([]));
     } else {
       
       let data = JSON.parse(localStorage.getItem("todos"));
-      console.log(data);
+      let completed = JSON.parse(localStorage.getItem("completed"));
+      setCompletedList(completed);
       setTodo(data);
     }
 
@@ -72,7 +93,20 @@ function App() {
         <h1>Todo List</h1>
       </header>
       <Form todo={todo} setTodo={setTodo} setInput={setInput} input={input} setStatus={setStatus} />
-      <List todo = {todo} setTodo={setTodo} filteredTodo={filteredTodo}/>
+      <div className='List-view'>
+        <div className='List1'>
+          <h1>Current</h1>
+          <List todo = {todo} setTodo={setTodo} filteredTodo={filteredTodo}/>
+          <button onClick={removeHandler}>Remove Completed Task </button>
+        </div>
+        <div className='List2'>
+          <h1>Completed</h1>
+          <Completed_List completedList={completedList} setCompletedList = {setCompletedList}/>
+        </div>
+        
+
+      </div>
+
       
     </div>
   );

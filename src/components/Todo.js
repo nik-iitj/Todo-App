@@ -17,6 +17,7 @@ const Todo = ({text,todo,setTodo,element})=>{
                     ...ele,completed: !ele.completed
                 };
             }
+            
 
             return ele;
 

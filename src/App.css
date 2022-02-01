@@ -38,15 +38,48 @@ form button:hover {
   background: #ff6f47;
   color: white;
 }
+
+.List-view{
+
+
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+}
+
+.List1{
+
+  width: 30%;
+
+}
+
+.List2{
+
+  width: 30%;
+
+}
+
 .todo-container {
   display: flex;
-  justify-content: center;
+  width: 100%;
   align-items: center;
+  justify-content: center;
+
+}
+.todo-container-complete {
+
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .todo-list {
   min-width: 30%;
   list-style: none;
+  width: 100%;
 }
 
 .todo {

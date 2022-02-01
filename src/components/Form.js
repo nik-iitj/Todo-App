@@ -27,9 +27,9 @@ const Form = ({setInput, todo, setTodo,input, setStatus}) =>{
         if (data.length<5) 
         {
               
-            // Changing content and color of content
             error.textContent = "Please enter a the task name \nwith more than 4 characters"
             error.style.color = "red"
+
         } else {
             error.textContent = ""
             setTodo([
@@ -44,26 +44,7 @@ const Form = ({setInput, todo, setTodo,input, setStatus}) =>{
 
     };
 
-    const statusHandler = (e)=>{
-      setStatus(e.target.value);
 
-    };
-
-    const CheckError = ()=>{
-
-      if(input.length<=5){
-
-        return (
-          <h1>ddsss</h1>
-        );        
-
-      } else {
-        return (
-          <h1>correct</h1>
-        )
-      }
-
-    }
 
 
 
@@ -73,16 +54,7 @@ const Form = ({setInput, todo, setTodo,input, setStatus}) =>{
         
         <button onClick={submitHandler} className="todo-button" type="submit">
           <i className="fas fa-plus-square"></i>
-        </button>
-        <div className="select">
-          <select onChange={statusHandler} name="todos" className="filter-todo">
-            <option value="all">All</option>
-            <option value="completed">Completed</option>
-            <option value="uncompleted">Uncompleted</option>
-          </select>
-        </div>
-        
-    
+        </button>    
         <span id="error"></span>
       </form>
       
