@@ -97,7 +97,7 @@ function App() {
         <div className='List1'>
           <h1>Current</h1>
           <List todo = {todo} setTodo={setTodo} filteredTodo={filteredTodo}/>
-          <button onClick={removeHandler}>Remove Completed Task </button>
+          <button className='Submit' onClick={removeHandler}>Remove Completed Task </button>
         </div>
         <div className='List2'>
           <h1>Completed</h1>
